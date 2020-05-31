@@ -1,0 +1,65 @@
+/api/notifications:
+  get:
+    tags:
+      - Customer Notification
+    summary: Get All Customer Notification
+    description: Get All Notification from Customer currently logged in
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: limit
+        in : query
+        schema:
+          type: integer
+        description: Numbers of Data PerPage
+      - name: page
+        in : query
+        schema:
+          type: integer
+        description: Page Number
+    responses:
+      200:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      401:
+        description: Not Authorized, Please Login
+      403:
+        description: Not Allow, Forbiden
+      500:
+        description: Internal Server Error
+
+/api/notifications/{id}/{type}:
+  get:
+    tags:
+      - Customer Notification
+    summary: Get Specific Customer Camera
+    description: Use to Get Customer Camera
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: id
+        in : path
+        schema:
+          type: integer
+        description: Specific id Notification
+      - name: type
+        in : path
+        schema:
+          type: string
+        description: Specific type source notifications
+    responses:
+      200:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      401:
+        description: Not Authorized, Please Login
+      403:
+        description: Not Allow, Forbiden
+      500:
+        description: Internal Server Error

@@ -1,0 +1,75 @@
+/api/camera-cctv:
+  get:
+    tags:
+      - Camera CCTV
+    summary: Get All Customer CCTV
+    description: Get All CCTV from Customer currently logged in
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: limit
+        in : query
+        schema:
+          type: integer
+        description: Numbers of Data PerPage
+      - name: page
+        in : query
+        schema:
+          type: integer
+        description: Page Number
+      - name: search
+        in : query
+        schema:
+          type: string
+        description: Search Customer CCTV by Name
+    responses:
+      200:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      401:
+        description: Not Authorized, Please Login
+      403:
+        description: Not Allow, Forbiden
+      500:
+        description: Internal Server Error
+
+/api/camera-cctv/{id}:
+  get:
+    tags:
+      - Camera CCTV
+    summary: Get Specific Customer Camera and Notifications
+    description: Use to Get Customer Camera and Notifications
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: id
+        in : path
+        schema:
+          type: integer
+        description: Specific id Camera CCTV
+      - name: limit
+        in : query
+        schema:
+          type: integer
+        description: Numbers of Data PerPage
+      - name: page
+        in : query
+        schema:
+          type: integer
+        description: Page Number
+    responses:
+      200:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      401:
+        description: Not Authorized, Please Login
+      403:
+        description: Not Allow, Forbiden
+      500:
+        description: Internal Server Error

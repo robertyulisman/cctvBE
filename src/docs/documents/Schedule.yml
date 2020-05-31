@@ -1,0 +1,40 @@
+/api/schedule:
+  post:
+    tags:
+      - Schedule
+    summary: Create or Update Schedule
+    description: Use to Create or Update Schedule
+    security:
+      - bearerAuth: []
+    requestBody:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            required:
+              - CCTVId
+              - isOn
+              - listHour
+              - listDay
+            properties:
+              CCTVId:
+                type: integer
+              isOn:
+                type: integer
+              listHour:
+                type: string
+              listDay:
+                type: string
+    responses:
+      201:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      401:
+        description: Not Authorized, Please Login
+      403:
+        description: Not Allow, Forbiden
+      500:
+        description: Internal Server Error

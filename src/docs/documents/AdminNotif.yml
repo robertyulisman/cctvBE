@@ -1,0 +1,36 @@
+/api/notifications:
+  post:
+    tags:
+      - Notification
+    summary: Create Notification
+    description: Create Notification
+    requestBody:
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            required:
+              - CCTVId
+              - sourcePath
+              - lastImage
+            properties:
+              CCTVId:
+                type: integer
+              sourcePath:
+                type: string
+              lastImage:
+                type: string
+              objectDetected:
+                type: string
+              ipServer:
+                type: string
+    responses:
+      200:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      500:
+        description: Internal Server Error

@@ -1,0 +1,68 @@
+/api/users:
+  get:
+    tags:
+      - Customer
+    summary: Get Customer Profile
+    description: Use to Get Account Profile Customer currently logged in
+    security:
+      - bearerAuth: []
+    responses:
+      200:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      401:
+        description: Not Authorized, Please Login
+      403:
+        description: Not Allow, Forbiden
+      500:
+        description: Internal Server Error
+  patch:
+    tags:
+      - Customer
+    summary: Update Customer Profile
+    description: Minimal Defined one parameter to Update Account Profile
+    security:
+      - bearerAuth: []
+    requestBody:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+              email:
+                type: string
+              noHandPhone:
+                type: string
+              gender:
+                type: string
+              address:
+                type: string
+              picture:
+                type: string
+                format: binary
+              old_password:
+                type: string
+              new_password:
+                type: string
+              confirm_password:
+                type: string
+    responses:
+      200:
+        description: Success
+      202:
+        description: Request Accepted  but the processing has not been completed
+      400:
+        description: Error
+      401:
+        description: Not Authorized, Please Login
+      403:
+        description: Not Allow, Forbiden
+      500:
+        description: Internal Server Error
