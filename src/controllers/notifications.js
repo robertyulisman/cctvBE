@@ -88,6 +88,8 @@ exports.createNotification = async (req, res, next) => {
                                 notification: {
                                     title: 'New Detection Motion',
                                     body: `Detect ${notification.objectDetected}`,
+                                    imageUrl:
+                                        'https://i.ibb.co/v1hkzpw/ic-launcher.png',
                                 },
                                 data: {
                                     id: notification.id.toString(),
