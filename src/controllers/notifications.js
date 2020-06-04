@@ -93,6 +93,7 @@ exports.createNotification = async (req, res, next) => {
                                 },
                                 data: {
                                     id: notification.id.toString(),
+                                    CCTVId: notification.CCTVId,
                                     cameraCCTV: getCCTVname.name,
                                     createdAt: notification.createdAt.toString(),
                                 },
