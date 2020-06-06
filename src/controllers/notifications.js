@@ -110,7 +110,7 @@ exports.createNotification = async (req, res, next) => {
                 admin
                   .messaging()
                   .sendToDevice(
-                    registrationToken,
+                    registrationTokenMute,
                     (payload = {
                       notification: {
                         title: "New Detection Motion",
